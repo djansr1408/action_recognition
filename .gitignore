@@ -139,3 +139,4 @@ cython_debug/
 
 
 .vscode/
+./data/val/P01_11/*.jpg
