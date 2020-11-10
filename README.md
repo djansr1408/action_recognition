@@ -9,7 +9,7 @@ Required:
 - pip install -r requirements.txt
 - Install pytorch (depending on your configuration)
 - pip install git+https://github.com/wpwei/pretrained-models.pytorch.git@vision_bug_fix
-- Download kfc_videos.zip from this link https://drive.google.com/file/d/1hj0ru8K8LekxXV9a_gpWm_ScgNbyYJ2-/view?usp=sharing and extract into the repository ./data/test so to get ./data/test/kfc_videos.
+- Download kfc_videos.zip from this link https://drive.google.com/file/d/1gT6NazM763AvtLnNPDVvNq5bZWPj4HbV/view?usp=sharing and extract into the repository ./data/test so to get ./data/test/kfc_videos.
 - Download P01_11.tar from https://data.bris.ac.uk/data/dataset/b2db579428d236ae3f529ab05d8aa55e/resource/bff828c1-466f-4168-b092-2c0b536013bd?inner_span=True
 and extract it to ./data/val folder under P01_11 name.
 
