@@ -13,7 +13,7 @@ Required:
 and extract it to data/val folder under P01_11 name.
 
 Quick check: The structure of the folders should look like this:
--data 
+- data 
   - test (*.csv *.mp4)
   - val
     - (*.csv)
