@@ -1,4 +1,5 @@
-
+import warnings
+warnings.filterwarnings("ignore")
 import pandas as pd
 import numpy as np
 import torch.hub
@@ -134,7 +135,7 @@ if __name__ == "__main__":
     # Load data
     if args.dataset == 'D1':
         annotations_df = pd.read_csv('data/test/action_recognition_labels.csv', sep=',')
-        list_of_input_tuples = create_inputs_from_annotations(annotations_df, 'data/test', verb_to_id, noun_to_id)
+        list_of_input_tuples = create_inputs_from_annotations(annotations_df, 'data/test/kfc_videos', verb_to_id, noun_to_id)
         output_dir = 'data/test'
     elif args.dataset == 'D2':
         annotations_df = pd.read_csv('data/val/EPIC_100_validation.csv', sep=',')
@@ -229,22 +230,20 @@ if __name__ == "__main__":
     plot_class_distribution(verb_dict, os.path.join(output_dir, 'verb_labels.png'), 'verb labels')
     plot_class_distribution(noun_dict, os.path.join(output_dir, 'noun_labels.png'), 'noun labels')
 
-    print("verb_dict: ", verb_dict)
-    print("noun_dict: ", noun_dict)
+    # print("verb_dict: ", verb_dict)
+    # print("noun_dict: ", noun_dict)
 
     plot_class_distribution(verb_pred_dict, os.path.join(output_dir, 'verb_predicted.png'), 'verb predicted')
     plot_class_distribution(noun_pred_dict, os.path.join(output_dir, 'noun_predicted.png'), 'noun predicted')
 
-    print("verb_dict_pred: ", verb_pred_dict)
-    print("noun_dict_pred: ", noun_pred_dict)
+    # print("verb_dict_pred: ", verb_pred_dict)
+    # print("noun_dict_pred: ", noun_pred_dict)
 
     pred_df = pd.DataFrame(naration_ids, columns=['narration_id'])
     pred_df['verb_class_pred'] = verb_predictions
     pred_df['noun_class_pred'] = noun_predictions
 
-    print(pred_df.head())
     annotations_df = annotations_df.merge(pred_df, left_on='narration_id', right_on='narration_id', how='inner')
-    print(annotations_df.head())
 
     if args.output_dir is None:
         annotations_df.to_csv(os.path.join(output_dir, 'annotations_predicted.csv'), sep=',', index=False)
