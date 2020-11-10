@@ -249,4 +249,6 @@ if __name__ == "__main__":
     if args.output_dir is None:
         annotations_df.to_csv(os.path.join(output_dir, 'annotations_predicted.csv'), sep=',', index=False)
     else:
+        if not os.path.exists(args.output_dir):
+            os.makedirs(args.output_dir)
         annotations_df.to_csv(os.path.join(args.output_dir, 'annotations_predicted.csv'), sep=',', index=False)
