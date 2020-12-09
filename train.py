@@ -23,6 +23,8 @@ if __name__ == "__main__":
                         help='Batch size')
     parser.add_argument('--lr', type=float, default=0.001,   
                         help='Learning rate')
+    parser.add_argument('--weight_decay', type=float, default=0,   
+                        help='Weight decay.')
     parser.add_argument('--num_epochs', type=int, default=10,   
                         help='Num epochs')
     args = parser.parse_args()
@@ -92,7 +94,7 @@ if __name__ == "__main__":
 
     
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=args.weight_decay, amsgrad=False)
     
 
     num_iter = 1
