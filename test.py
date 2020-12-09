@@ -88,8 +88,8 @@ if __name__ == "__main__":
                         choices=['TSN', 'TRN', 'MTRN', 'TSM'],
                         help='Type of the model.')
     parser.add_argument('--dataset', type=str, default='D1', 
-                        choices=['D1', 'D2'], 
-                        help='D1 (unseen), D2 (seen)')
+                        choices=['D1', 'D2', 'D3'], 
+                        help='D1 (unseen), D2 (seen), D3 (with 4 classes)')
     parser.add_argument('--output_dir', type=str, default=None,
                         help='Output directory where to save predictions .csv file')
     
@@ -141,6 +141,11 @@ if __name__ == "__main__":
         annotations_df = pd.read_csv('data/val/EPIC_100_validation.csv', sep=',')
         list_of_input_tuples = create_inputs_from_annotations_val(annotations_df, videos_dir='data/val/P01_11')
         output_dir = 'data/val'
+    elif args.dataset == 'D3':
+        annotations_df = pd.read_csv('data/test/action_recognition_labels_test.csv', sep=',')
+        annotations_df = annotations_df[annotations_df['verb'].isna() == False]
+        list_of_input_tuples = create_inputs_from_annotations(annotations_df, 'data/test/kfc_videos', verb_to_id, noun_to_id)
+        output_dir = 'data/test'
     else:
         print("Bad dataset input specified.")
         quit(0)
