@@ -32,7 +32,7 @@ Possible choices for model are ('TSN', 'TRN', 'MTRN', 'TSM'), for dataset ('D1',
 
 
 For train process there is the script train.py with arguments:
-##### python train.py --videos_dir data/video_segments/videos_60 --output_dir ckpt_60 --lr 0.00097 --num_epochs 10
+##### python train.py --videos_dir data/video_segments/videos_60 --output_dir ckpt_60 --lr 0.00097 --num_epochs 10 --weight_decay 0.0001
 
 
 For evaluation on fine-tuned model there is the script evaluate.py with arguments:
