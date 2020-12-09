@@ -28,14 +28,16 @@ Quick check: The structure of the folders should look like this:
 
 Command for running code:
 ##### python test.py --model TRN --dataset D1 --output_dir output (optional)
-
 Possible choices for model are ('TSN', 'TRN', 'MTRN', 'TSM'), for dataset ('D1', 'D2').
+
 
 For train process there is the script train.py with arguments:
 ##### python train.py --videos_dir data/video_segments/videos_60 --output_dir ckpt_60 --lr 0.00097 --num_epochs 10
 
+
 For evaluation on fine-tuned model there is the script evaluate.py with arguments:
 ##### python evaluate.py --checkpoint_dir ckpt_60 --model_number 5
+
 
 For evaluation on the original EPIC-KITCHEN model there is the script test.py with arguments:
 ##### python test.py --model 'TSN' --dataset 'D3' --output_dir output
